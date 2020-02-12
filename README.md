@@ -17,6 +17,7 @@
 - [Función AS](#AS)
 - [Orden de ejecución](#ORDEN-DE-EJECUCION)
 - [Alternativas a in](#ALTERNATIVAS-A-IN)
+- [Cómo se escribe que no sea igual (!=](#COMO-SE-ESCRIBE-QUE-NO-SEA-IGUAL)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -156,7 +157,7 @@ La función AS se utiliza para renombrar tablas
 `1) WHERE`
 `2) GROUP BY`
 `3) HAVING`
-`4) SELECT
+`4) SELECT`
 
 ## ALTERNATIVAS A IN 
 La función IN se puede poner de otras dos maneras diferentes:
@@ -168,4 +169,13 @@ o
 ```sql
  WHERE NAME OR ‘’ LIKE 
  
+```
+## COMO SE ESCRIBE QUE NO SEA IGUAL 
+La forma correcta de escribirlo es con '<>' , la forma incorrecta es !=.
+> Fórmula de ejemplo
+ 
+ ```sql
+ SELECT alumno 
+ FROM colegio
+ WHERE nombre <> 'Antonio'
 ```
