@@ -17,7 +17,8 @@
 - [Función AS](#AS)
 - [Orden de ejecución](#ORDEN-DE-EJECUCION)
 - [Alternativas a in](#ALTERNATIVAS-A-IN)
-- [Cómo se escribe que no sea igual (!=](#COMO-SE-ESCRIBE-QUE-NO-SEA-IGUAL)
+- [Cómo se escribe que no sea igual (!=)](#COMO-SE-ESCRIBE-QUE-NO-SEA-IGUAL)
+- [BETWEEN sin incluir ambos extremos](#BETWEEN-SIN-INCLUIR-AMBOS-EXTREMOS)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -178,4 +179,9 @@ La forma correcta de escribirlo es con '<>' , la forma incorrecta es !=.
  SELECT alumno 
  FROM colegio
  WHERE nombre <> 'Antonio'
+```
+## BETWEEN SIN INCLUIR AMBOS EXTREMOS.
+BETWEEN sin incluir ambos extremos se puede escribir con:
+```sql
+WHERE NAME >= ‘’ AND NAME <= ‘’
 ```
