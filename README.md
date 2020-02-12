@@ -26,3 +26,15 @@ La función BETWEEN se utiliza dentro del WHERE y se usa para filtrar valores de
  WHERE nombre 
  BETWEEN 'Antonio' AND 'Raquel'
 ```
+## IN
+La función IN se tiene que utilizar dentro del WHERE y se usa para seleccionar varios valores, entre paréntesis y separados por comas.
+ > IMPORTANTE: SE DEBEN USAR COMILLAS SIMPLES Y NO COMILLAS DOBLES, SUELE DAR ERROR!
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT alumno 
+ FROM colegio
+ WHERE nombre 
+ IN ('Antonio, Rosalía, Raquel)
+```
