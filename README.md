@@ -7,6 +7,7 @@
 	- [Función JOIN](#JOIN)
 		- [Función RIGHT JOIN](#RIGHT_JOIN)
 		- [Función LEFT JOIN](#LEFT_JOIN)
+- [Función SELECT](#SELECT)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -57,3 +58,13 @@ La función RIGHT JOIN es lo mismo que INNER JOIN con la diferencia que los dato
 
 ## LEFT JOIN
 La función LEFT JOIN es lo mismo que INNER JOIN con la diferencia que los datos de la columna izquierda aparecen aunque los de la derecha sean nulos.
+
+## SELECT
+La función SELECT se utiliza para mostrar en la consulta SQL las columnas que queremos consultar de una tabla.
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT nombre, departamento
+ 
+```
