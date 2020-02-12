@@ -12,6 +12,7 @@
 	- [Función SUM](#SUM)
 	- [Función COUNT](#COUNT)
 	- [Función MAX/MIN](#MAX/MIN)
+- [Función NOT NULL](#NOT_NULL)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -116,4 +117,14 @@ La función MAX o MIN  se utiliza en el SELECT para el valor mayor o menor en un
  SELECT MIN(id)
  FROM departamento
  
+```
+## NOT NULL
+La función NOT NULL se utiliza para especificar que una columna no acepta valores vacíos.
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT nombre
+ FROM profesores
+ nombre IS NOT NULL
 ```
