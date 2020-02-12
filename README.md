@@ -25,4 +25,4 @@ La función BETWEEN se utiliza dentro del WHERE y se usa para filtrar valores de
  FROM colegio
  WHERE nombre 
  BETWEEN 'Antonio' AND 'Raquel'
- ´´´
+´´´
