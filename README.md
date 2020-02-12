@@ -20,7 +20,7 @@
 - [Cómo se escribe que no sea igual (!=)](#COMO-SE-ESCRIBE-QUE-NO-SEA-IGUAL)
 - [BETWEEN sin incluir ambos extremos](#BETWEEN-SIN-INCLUIR-AMBOS-EXTREMOS)
 - [Uso de caracteres especiales](#USO-DE-CARACTERES-ESPECIALES)
-- [Diferencia entre like e igual](#DIFERENCIA ENTRE LIKE E IGUAL)
+- [Diferencia entre like e igual](#DIFERENCIA-ENTRE-LIKE-E-IGUAL)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
