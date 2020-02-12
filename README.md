@@ -9,6 +9,9 @@
 		- [Función LEFT JOIN](#LEFT_JOIN)
 - [Función SELECT](#SELECT)
 	- [Función DISTINCT](#DISTINCT)
+	- [Función SUM](#SUM)
+	- [Función COUNT](#COUNT)
+	- [Función MAX/MIN](#MAX/MIN)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -77,5 +80,40 @@ La función DISTINCT se utiliza en el SELECT para evitar que se repitan los valo
  ```sql
  SELECT DISTINCT nombre
  FROM profesores
+ 
+```
+## SUM
+La función SUM se utiliza en el SELECT para obtener una suma de totales de los valores de una columna que irá entre paréntesis.
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT SUM(nombre)
+ FROM profesores
+ 
+```
+## COUNT
+La función COUNT se utiliza en el SELECT para devolver el numero de filas que se usan en una consulta. la columna que se usará para esta función tiene que ir entre paréntesis
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT COUNT(nombre)
+ FROM profesores
+ 
+```
+## MAX/MIN
+La función MAX o MIN  se utiliza en el SELECT para el valor mayor o menor en una columna. Dicha columna tiene que ir entre paréntesis.
+
+ > Fórmulas de ejemplo
+ 
+ ```sql
+ SELECT MAX(id)
+ FROM departamento
+ 
+```
+ ```sql
+ SELECT MIN(id)
+ FROM departamento
  
 ```
