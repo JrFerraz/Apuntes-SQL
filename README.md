@@ -1,2 +1,2 @@
-# apuntesbd
+# Apuntes SQL-DQL
 Apuntes Bases De Datos
