@@ -5,8 +5,8 @@
 	- [Función BETWEEN](#BETWEEN)
 	- [Función IN](#IN)
 	- [Función JOIN](#JOIN)
-		- [Función RIGHT JOIN](#RIGHT JOIN)
-		- [Función LEFT JOIN](#LEFT JOIN)
+		- [Función RIGHT JOIN](#RIGHT_JOIN)
+		- [Función LEFT JOIN](#LEFT_JOIN)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
