@@ -13,6 +13,7 @@
 	- [Función COUNT](#COUNT)
 	- [Función MAX/MIN](#MAX/MIN)
 - [Función NOT NULL](#NOT_NULL)
+- [Función ORDER BY](#ORDER-BY)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -127,4 +128,14 @@ La función NOT NULL se utiliza para especificar que una columna no acepta valor
  SELECT nombre
  FROM profesores
  nombre IS NOT NULL
+```
+## ORDER BY
+La función ORDER BY se utiliza para ordenar los resultados de una consulta, en ASC (ascendente) o DESC (descendente)
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT nombre
+ FROM profesores
+ ORDER BY nombre ASC
 ```
