@@ -10,6 +10,7 @@
 - [Función SELECT](#SELECT)
 	- [Función DISTINCT](#DISTINCT)
 	- [Función SUM](#SUM)
+	- [Función AVG](#AVG)
 	- [Función COUNT](#COUNT)
 	- [Función MAX/MIN](#MAX/MIN)
 - [Función NOT NULL](#NOT-NULL)
@@ -99,6 +100,16 @@ La función SUM se utiliza en el SELECT para obtener una suma de totales de los 
  ```sql
  SELECT SUM(nombre)
  FROM profesores
+ 
+```
+## AVG
+La función SUM se utiliza en el SELECT para reducir a la media los valores de una columna que irá entre paréntesis.
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT AVG(id)
+ FROM departamentos
  
 ```
 ## COUNT
