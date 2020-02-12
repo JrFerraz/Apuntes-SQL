@@ -1,5 +1,5 @@
 # Apuntes SQL-DQL
-> Estos apuntes han sido preparados recopilando información en clase y por mi cuenta para facilitarme el entendimiento de las distintas fórmulas de cara al examen.
+> Estos apuntes han sido preparados recopilando información en clase y por mi cuenta para facilitarme el entendimiento de las distintas funciones de SQL de cara al examen.
 ## Índice
 - [Función WHERE](#WHERE)
 	- [Función BETWEEN](#BETWEEN)
