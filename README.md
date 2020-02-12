@@ -5,15 +5,17 @@
 	- [Función BETWEEN](#BETWEEN)
 	- [Función IN](#IN)
 	- [Función JOIN](#JOIN)
-		- [Función RIGHT JOIN](#RIGHT_JOIN)
-		- [Función LEFT JOIN](#LEFT_JOIN)
+		- [Función RIGHT JOIN](#RIGHT-JOIN)
+		- [Función LEFT JOIN](#LEFT-JOIN)
 - [Función SELECT](#SELECT)
 	- [Función DISTINCT](#DISTINCT)
 	- [Función SUM](#SUM)
 	- [Función COUNT](#COUNT)
 	- [Función MAX/MIN](#MAX/MIN)
-- [Función NOT NULL](#NOT_NULL)
+- [Función NOT NULL](#NOT-NULL)
 - [Función ORDER BY](#ORDER-BY)
+- [Función AS](#AS)
+- [Orden de ejecución](#ORDEN-DE-EJECUCION)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -49,7 +51,7 @@ La función IN se tiene que utilizar dentro del WHERE y se usa para seleccionar 
  IN ('Antonio, Rosalía, Raquel)
 ```
 
-## INNER_JOIN
+## INNER JOIN
 La función INNER JOIN o JOIN se utiliza para combinar varias filas de varias tablas distintas a través de las claves principales o foráneas.
 
  > Fórmula de ejemplo
@@ -59,10 +61,10 @@ La función INNER JOIN o JOIN se utiliza para combinar varias filas de varias ta
  FROM profesores JOIN departamentos ON iddep.profesores = id.departamentos
  WHERE departamento = 'ciencias'
 ```
-## RIGHT_JOIN
+## RIGHT JOIN
 La función RIGHT JOIN es lo mismo que INNER JOIN con la diferencia que los datos de la columna derecha aparecen aunque los de la izquierda sean nulos.
 
-## LEFT_JOIN
+## LEFT JOIN
 La función LEFT JOIN es lo mismo que INNER JOIN con la diferencia que los datos de la columna izquierda aparecen aunque los de la derecha sean nulos.
 
 ## SELECT
@@ -119,7 +121,7 @@ La función MAX o MIN  se utiliza en el SELECT para el valor mayor o menor en un
  FROM departamento
  
 ```
-## NOT_NULL
+## NOT NULL
 La función NOT NULL se utiliza para especificar que una columna no acepta valores vacíos.
 
  > Fórmula de ejemplo
@@ -139,3 +141,18 @@ La función ORDER BY se utiliza para ordenar los resultados de una consulta, en 
  FROM profesores
  ORDER BY nombre ASC
 ```
+## AS
+La función AS se utiliza para renombrar tablas
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT nombre
+ FROM profesores AS PR
+ 
+```
+## ORDEN DE EJECUCION
+`1) WHERE`
+`2) GROUP BY`
+`3) HAVING`
+`4) SELECT`
