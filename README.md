@@ -19,6 +19,8 @@
 - [Alternativas a in](#ALTERNATIVAS-A-IN)
 - [Cómo se escribe que no sea igual (!=)](#COMO-SE-ESCRIBE-QUE-NO-SEA-IGUAL)
 - [BETWEEN sin incluir ambos extremos](#BETWEEN-SIN-INCLUIR-AMBOS-EXTREMOS)
+- [Uso de caracteres especiales](#USO-DE-CARACTERES-ESPECIALES)
+- [Diferencia entre like e igual](#DIFERENCIA ENTRE LIKE E IGUAL)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -180,8 +182,13 @@ La forma correcta de escribirlo es con '<>' , la forma incorrecta es !=.
  FROM colegio
  WHERE nombre <> 'Antonio'
 ```
-## BETWEEN SIN INCLUIR AMBOS EXTREMOS.
+## BETWEEN SIN INCLUIR AMBOS EXTREMOS
 BETWEEN sin incluir ambos extremos se puede escribir con:
 ```sql
 WHERE NAME >= ‘’ AND NAME <= ‘’
 ```
+## USO DE CARACTERES ESPECIALES
+Para el uso de caracteres especiales en las consultas SQL como ' dentro de una cadena o expresión, tiene que ponerse antes /
+
+## DIFERENCIA ENTRE LIKE E IGUAL
+La diferencia entre like ‘’ y = ‘’ , es que like es una expresión regular  y = es una cadena
