@@ -8,6 +8,7 @@
 		- [Función RIGHT JOIN](#RIGHT_JOIN)
 		- [Función LEFT JOIN](#LEFT_JOIN)
 - [Función SELECT](#SELECT)
+	- [Función DISTINCT](#DISTINCT)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -65,6 +66,16 @@ La función SELECT se utiliza para mostrar en la consulta SQL las columnas que q
  > Fórmula de ejemplo
  
  ```sql
- SELECT nombre, departamento
+ SELECT nombre
+ FROM profesores
+```
+## DISTINCT
+La función DISTINCT se utiliza en el SELECT para evitar que se repitan los valores en una columna.
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+ SELECT DISTINCT nombre
+ FROM profesores
  
 ```
