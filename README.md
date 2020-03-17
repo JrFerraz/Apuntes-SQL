@@ -7,6 +7,7 @@
 	- [Función JOIN](#JOIN)
 		- [Función RIGHT JOIN](#RIGHT-JOIN)
 		- [Función LEFT JOIN](#LEFT-JOIN)
+	- [Subconsultas](#SUBCONSULTAS)
 - [Función SELECT](#SELECT)
 	- [Función DISTINCT](#DISTINCT)
 	- [Función SUM](#SUM)
@@ -75,6 +76,20 @@ La función RIGHT JOIN es lo mismo que INNER JOIN con la diferencia que los dato
 ## LEFT JOIN
 La función LEFT JOIN es lo mismo que INNER JOIN con la diferencia que los datos de la columna izquierda aparecen aunque los de la derecha sean nulos.
 
+## SUBCONSULTAS
+Las subconsultas son consultas anidadas independientes de la consulta principal que suelen ir dentro del WHERE. Se utiliza para comparar datos
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+SELECT pais
+FROM world
+WHERE poblacion > 
+     (SELECT poblacion
+      FROM world
+      WHERE pais='Spain');'
+```
+
 ## SELECT
 La función SELECT se utiliza para mostrar en la consulta SQL las columnas que queremos consultar de una tabla.
 
@@ -84,6 +99,7 @@ La función SELECT se utiliza para mostrar en la consulta SQL las columnas que q
  SELECT nombre
  FROM profesores
 ```
+
 ## DISTINCT
 La función DISTINCT se utiliza en el SELECT para evitar que se repitan los valores en una columna.
 
@@ -94,6 +110,7 @@ La función DISTINCT se utiliza en el SELECT para evitar que se repitan los valo
  FROM profesores
  
 ```
+
 ## SUM
 La función SUM se utiliza en el SELECT para obtener una suma de totales de los valores de una columna que irá entre paréntesis.
 
@@ -104,6 +121,7 @@ La función SUM se utiliza en el SELECT para obtener una suma de totales de los 
  FROM profesores
  
 ```
+
 ## AVG
 La función SUM se utiliza en el SELECT para reducir a la media los valores de una columna que irá entre paréntesis.
 
@@ -114,6 +132,7 @@ La función SUM se utiliza en el SELECT para reducir a la media los valores de u
  FROM departamentos
  
 ```
+
 ## COUNT
 La función COUNT se utiliza en el SELECT para devolver el numero de filas que se usan en una consulta. la columna que se usará para esta función tiene que ir entre paréntesis
 
@@ -124,6 +143,7 @@ La función COUNT se utiliza en el SELECT para devolver el numero de filas que s
  FROM profesores
  
 ```
+
 ## MAX/MIN
 La función MAX o MIN  se utiliza en el SELECT para el valor mayor o menor en una columna. Dicha columna tiene que ir entre paréntesis.
 
@@ -139,6 +159,7 @@ La función MAX o MIN  se utiliza en el SELECT para el valor mayor o menor en un
  FROM departamento
  
 ```
+
 ## NOT NULL
 La función NOT NULL se utiliza para especificar que una columna no acepta valores vacíos.
 
@@ -149,6 +170,7 @@ La función NOT NULL se utiliza para especificar que una columna no acepta valor
  FROM profesores
  nombre IS NOT NULL
 ```
+
 ## ORDER BY
 La función ORDER BY se utiliza para ordenar los resultados de una consulta, en ASC (ascendente) o DESC (descendente)
 
@@ -159,6 +181,7 @@ La función ORDER BY se utiliza para ordenar los resultados de una consulta, en 
  FROM profesores
  ORDER BY nombre ASC
 ```
+
 ## GROUP BY
 La función GROUP BY se utiliza para para agrupar tuplas de resultados que coincidan en el valor de la columna a seleccionar. Se suele utilizar junto a funciones agregadas (SUM,COUNT,AVG, MIN, MAX) 
 
@@ -169,6 +192,7 @@ SELECT pais, SUM(poblacion)
 FROM world
 GROUP BY pais
 ```
+
 ## HAVING
 La función HAVING BY se utiliza para introducir predicados con funciones agregadas (SUM,COUNT,AVG, MIN, MAX) , ya que en el WHERE no se puede
 
@@ -180,6 +204,7 @@ FROM world
 GROUP BY pais
 HAVING SUM(poblacion) > 5000000 ;
 ```
+
 ## AS
 La función AS se utiliza para renombrar tablas
 
@@ -190,6 +215,7 @@ La función AS se utiliza para renombrar tablas
  FROM profesores AS PR
  
 ```
+
 ## ORDEN DE EJECUCION
 `1) WHERE`
 `2) GROUP BY`
@@ -207,6 +233,7 @@ o
  WHERE NAME OR ‘’ LIKE 
  
 ```
+
 ## COMO SE ESCRIBE QUE NO SEA IGUAL 
 La forma correcta de escribirlo es con '<>' , la forma incorrecta es !=.
 > Fórmula de ejemplo
@@ -216,11 +243,13 @@ La forma correcta de escribirlo es con '<>' , la forma incorrecta es !=.
  FROM colegio
  WHERE nombre <> 'Antonio'
 ```
+
 ## BETWEEN SIN INCLUIR AMBOS EXTREMOS
 BETWEEN sin incluir ambos extremos se puede escribir con:
 ```sql
 WHERE NAME >= ‘’ AND NAME <= ‘’
 ```
+
 ## USO DE CARACTERES ESPECIALES
 Para el uso de caracteres especiales en las consultas SQL como ' dentro de una cadena o expresión, tiene que ponerse antes /
 
