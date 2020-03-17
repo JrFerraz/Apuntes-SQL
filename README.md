@@ -25,6 +25,7 @@
 - [BETWEEN sin incluir ambos extremos](#BETWEEN-SIN-INCLUIR-AMBOS-EXTREMOS)
 - [Uso de caracteres especiales](#USO-DE-CARACTERES-ESPECIALES)
 - [Diferencia entre like e igual](#DIFERENCIA-ENTRE-LIKE-E-IGUAL)
+- [Comodines](#COMODINES)
 ## WHERE
 La función WHERE se utiliza para hacer filtrar en las consultas, seleccionar las tablas que cumplan la condición deseada.
 
@@ -255,3 +256,14 @@ Para el uso de caracteres especiales en las consultas SQL como ' dentro de una c
 
 ## DIFERENCIA ENTRE LIKE E IGUAL
 La diferencia entre like ‘’ y = ‘’ , es que like es una expresión regular  y = es una cadena
+
+## COMODINES
+
+| Símbolo | Funciób          |
+| ------- | :---------------:|
+| =       | Igual            | 
+| >       | Mayor que        | 
+| <       | Menor que        | 
+| >=      | Mayor o igual que|
+| <=      | Menor o igual que|
+| <>      | Distinto         |
