@@ -19,6 +19,7 @@
 - [Función GROUP BY](#GROUP-BY)
 - [Función HAVING](#HAVING)
 - [Función AS](#AS)
+- [Función CONCAT](#CONCAT)
 - [Orden de ejecución](#ORDEN-DE-EJECUCION)
 - [Alternativas a in](#ALTERNATIVAS-A-IN)
 - [Cómo se escribe que no sea igual (!=)](#COMO-SE-ESCRIBE-QUE-NO-SEA-IGUAL)
@@ -218,6 +219,17 @@ La función AS se utiliza para renombrar tablas
  
 ```
 
+## CONCAT
+La función CONCAT se utiliza para la combinación/concanetación de dos o más valores. Se puede introducir dentro del select o en un predicado.
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+SELECT CONCAT(pais, poblacion)
+FROM world
+ 
+```
+
 ## ORDEN DE EJECUCION
 `1) WHERE`
 `2) GROUP BY`
@@ -259,7 +271,7 @@ Para el uso de caracteres especiales en las consultas SQL como ' dentro de una c
 La diferencia entre like ‘’ y = ‘’ , es que like es una expresión regular  y = es una cadena
 
 ## COMODINES
-| Símbolo | Funcion                                                       |
+| Comodin | Funcion                                                       |
 | :-----: | ------------------------------------------------------------  |
 | []      | Permite cambiar por los caracteres que estan en los corchetes | 
 | %       | Sustituye 0 o mas caracteres                                  | 
@@ -269,12 +281,12 @@ La diferencia entre like ‘’ y = ‘’ , es que like es una expresión regul
 
 
 ## COMPARADORES
-| Símbolo | Funcion          |
-| ------- | :---------------:|
-| =       | Igual            | 
-| >       | Mayor que        | 
-| <       | Menor que        | 
-| >=      | Mayor o igual que|
-| <=      | Menor o igual que|
-| <>      | Distinto         |
+| Comparador | Funcion            |
+| ---------- | :----------------: | 
+| =          | Igual              | 
+| >          | Mayor que          | 
+| <          | Menor que          | 
+| >=         | Mayor o igual que  |
+| <=         | Menor o igual que  |
+| <>         | Distinto           |
 
