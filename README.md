@@ -15,6 +15,7 @@
 	- [Función MAX/MIN](#MAX/MIN)
 - [Función NOT NULL](#NOT-NULL)
 - [Función ORDER BY](#ORDER-BY)
+- [Función GROUP BY](#GROUP-BY)
 - [Función AS](#AS)
 - [Orden de ejecución](#ORDEN-DE-EJECUCION)
 - [Alternativas a in](#ALTERNATIVAS-A-IN)
@@ -156,6 +157,16 @@ La función ORDER BY se utiliza para ordenar los resultados de una consulta, en 
  SELECT nombre
  FROM profesores
  ORDER BY nombre ASC
+```
+## GROUP BY
+La función GROUP BY se utiliza para para agrupar tuplas de resultados que coincidan en el valor de la columna a seleccionar. Se suele utilizar junto a funciones agregadas (SUM,COUNT,AVG, MIN, MAX) 
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+SELECT pais, SUM(poblacion)
+FROM world
+GROUP BY pais
 ```
 ## AS
 La función AS se utiliza para renombrar tablas
