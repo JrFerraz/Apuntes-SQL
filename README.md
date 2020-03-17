@@ -16,6 +16,7 @@
 - [Función NOT NULL](#NOT-NULL)
 - [Función ORDER BY](#ORDER-BY)
 - [Función GROUP BY](#GROUP-BY)
+- [Función HAVING](#HAVING)
 - [Función AS](#AS)
 - [Orden de ejecución](#ORDEN-DE-EJECUCION)
 - [Alternativas a in](#ALTERNATIVAS-A-IN)
@@ -167,6 +168,17 @@ La función GROUP BY se utiliza para para agrupar tuplas de resultados que coinc
 SELECT pais, SUM(poblacion)
 FROM world
 GROUP BY pais
+```
+## HAVING
+La función HAVING BY se utiliza para introducir predicados con funciones agregadas (SUM,COUNT,AVG, MIN, MAX) , ya que en el WHERE no se puede
+
+ > Fórmula de ejemplo
+ 
+ ```sql
+SELECT pais, SUM(poblacion)
+FROM world
+GROUP BY pais
+HAVING SUM(poblacion) > 5000000 ;
 ```
 ## AS
 La función AS se utiliza para renombrar tablas
