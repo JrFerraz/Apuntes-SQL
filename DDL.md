@@ -1,7 +1,15 @@
 # Apuntes SQL-DDL
 > Estos apuntes han sido preparados recopilando información en clase y por mi cuenta para facilitarme el entendimiento de las distintas funciones de SQL de cara al examen.
 ## Índice
+- [Qué es el sublenguaje DDL](#QUÉ-ES-EL-SUBLENGUAJE-DDL)
 - [Tipos de datos](#TIPOS-DE-DATOS)
+
+## QUÉ ES EL SUBLENGUAJE DDL
+EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
+Las tres principales sentencias dentro de este sublenguaje son:
+- ```CREATE```
+- ```ALTER```
+- ```DROP```
 
 ## TIPOS DE DATOS
 Dentro del DDL, hay muchísima variedad de datos, pero varias según el gestor que estemos utilizando. A Continuación se mostrará una tabla de una selección de los que vamos a usar.
