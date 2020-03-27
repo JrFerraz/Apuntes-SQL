@@ -4,7 +4,9 @@
 - [Qué es el sublenguaje DDL](#QUÉ-ES-EL-SUBLENGUAJE-DDL)
 - [Tipos de datos](#TIPOS-DE-DATOS)
 - [Sentencia CREATE](#SENTENCIA-CREATE)
-  - [CREAR BASE DE DATOS](#CREAR-BASE-DE-DATOS)
+  - [Crear bases de datos](#CREAR-BASE-DE-DATOS)
+  - [Crear dominio](#CREAR-DOMINIO)
+  - [Crear tablas](#CREAR-TABLA)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -37,9 +39,9 @@ Dentro del DDL, hay muchísima variedad de datos, pero varias según el gestor q
 ## SENTENCIA CREATE
 Es la sentencia que se utiliza para crear una base de datos u objetos dentro de esa base de datos (tabla, usuario,dominio, vista ...) 
 
-## CREAR BASES DE DATOS.
+## CREAR BASES DE DATOS
 La sentencia CREATE permite crear bases de datos de dos formas:
-- CREATE DATABASE
+- ```CREATE DATABASE```
  ```sql
   CREATE DATABASE
        [IF NOT EXITS] myDB 
@@ -48,7 +50,7 @@ La sentencia CREATE permite crear bases de datos de dos formas:
 ```
 > CREATE DATABASE tiene permisos muy restrictivos
 
-- CREATE SCHEMA
+- ```CREATE SCHEMA```
  ```sql
   CREATE SCHEMA
        [IF NOT EXITS] myDB 
@@ -57,3 +59,22 @@ La sentencia CREATE permite crear bases de datos de dos formas:
 ```
 > CREATE SCHEMA tiene permisos menos restrictivos
 
+## CREAR DOMINIO
+La sentencia ```CREATE DOMAIN``` se utiliza para crear dominios. Estos dominios se utilizan para gestionar de manera más ordenada y eficiente distintos atributos que comparten un mismo tipo de datos.
+Su sintaxis:
+ ```sql
+  CREATE DOMAIN <nombredominio> <tipodato>;
+
+```
+
+## CREAR TABLA
+La sentencia ```CREATE TABLE``` se utiliza para crear tablas dentro de una base de datos con la siguiente sintaxis:
+
+ ```sql
+ CREATE TABLE <nombretabla>
+( <atributo1> <dominio1> [NOT NULL] [DEFAULT <X>] ,
+[RESTRICCIÓN1], … ]
+);
+
+
+```
