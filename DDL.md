@@ -10,6 +10,8 @@
 - [Sentencia DROP](#SENTENCIA-DROP)
   - [Borrar una base de datos](#BORRAR-BASE-DE-DATOS)
   - [Borrar tablas dentro de una base de datos](#BORRAR-TABLAS)
+- [Sentencia ALTER](#SENTENCIA-ALTER)
+  - [Modificar tablas de una base de datos](#MODIFICAR-UNA-TABLA)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -97,7 +99,7 @@ Hay dos opciones para borrar la base de datos:
 - ``` CASCADE ```: Borra la totalidad de la base de datos aunque no esté vacía.
 
 ## BORRAR TABLA
-La sentencias ```DROP TABLE``` se utiliza para borrar tablas dentro de una base de datos con la siguiente sintaxis:
+La sentencia ```DROP TABLE``` se utiliza para borrar tablas dentro de una base de datos con la siguiente sintaxis:
 
  ```sql
  DROP TABLE [IF EXISTS] <nombretabla>
@@ -108,3 +110,17 @@ Hay dos opciones para borrar la tabla:
 - ``` RESTRICT ```: Protege los datos almacenados en la tabla si no está vacía. Es la opción por defecto.
 - ``` CASCADE ```: Borra la totalidad de la tabla aunque no esté vacía.
 
+## SENTENCIA ALTER
+Es la sentencia que se utiliza para modificar o agregar columnas,restricciones... en las tablas de una base de datos.
+
+## MODIFICAR UNA TABLA
+La sentencia ```ALTER TABLE``` se utiliza para borrar, modificar o agregar tanto columnas como restricciones de las tablas dentro de una base de datos con la siguiente sintaxis:
+
+ ```sql
+ALTER TABLE [IF EXISTS] <nombretabla>
+	 [RENAME TO <nuevonombre>],
+	 [RENAME [COLUMN | CONSTRAINT] <nombreantiguo> TO <nombrenuevo>],
+	 [SET SCHEMA <basededatos>],
+	 [ADD | DROP [COLUMN | CONSTRAINT] <nombre>] ... ;
+
+```
