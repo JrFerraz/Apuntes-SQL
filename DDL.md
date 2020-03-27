@@ -131,7 +131,7 @@ Los ``` CONSTRAINT ``` son restricciones que se pueden agregar en las sentencias
 ### - ``` PRIMARY KEY ```
 Restricción de clave principal, sólo puede exitir una por tabla.
 Hay tres formas de establecer la clave principal:
-< Indicarla en la propia línea
+> Indicarla en la propia línea
 ```sql
 CREATE TABLE <nombre> (
     <atributo1> <dominio1> PRIMARY KEY,
@@ -139,7 +139,7 @@ CREATE TABLE <nombre> (
     );
 
 ```
-< Indicarla al final de la sentencia, por ejemplo, cuando es una clave compuesta.
+> Indicarla al final de la sentencia, por ejemplo, cuando es una clave compuesta.
 ```sql
 CREATE TABLE <nombre> (
     <atributo1> <dominio1>,
@@ -148,7 +148,7 @@ CREATE TABLE <nombre> (
 );
 
 ```
-< Indicarla al final de la sentencia y asignandole un nombre a la restricción.
+> Indicarla al final de la sentencia y asignandole un nombre a la restricción.
 
 ```sql
 CREATE TABLE <nombre> (
