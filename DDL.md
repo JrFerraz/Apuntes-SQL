@@ -12,6 +12,7 @@
   - [Borrar tablas dentro de una base de datos](#BORRAR-TABLAS)
 - [Sentencia ALTER](#SENTENCIA-ALTER)
   - [Modificar tablas de una base de datos](#MODIFICAR-UNA-TABLA)
+- [CONSTRAINTS](#CONSTRAINTS)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -124,7 +125,38 @@ ALTER TABLE [IF EXISTS] <nombretabla>
 	 [ADD | DROP [COLUMN | CONSTRAINT] <nombre>] ... ;
 
 ```
-## CONSTRAINT
+## CONSTRAINTS
 Los ``` CONSTRAINT ``` son restricciones que se pueden agregar en las sentencias ``` CREATE TABLE ``` y ``` ALTER TABLE ``` y permiten establecer claves primarias, claves foráneas, checks, unicidad, límite de valores ...
 
 ### - ``` PRIMARY KEY ```
+Restricción de clave principal, sólo puede exitir una por tabla.
+Hay tres formas de establecer la clave principal:
+< Indicarla en la propia línea
+```sql
+CREATE TABLE <nombre> (
+    <atributo1> <dominio1> PRIMARY KEY,
+    <atributoN> <dominioN>
+    );
+
+```
+< Indicarla al final de la sentencia, por ejemplo, cuando es una clave compuesta.
+```sql
+CREATE TABLE <nombre> (
+    <atributo1> <dominio1>,
+    <atributoN> <dominioN>,
+    PRIMARY KEY (atributo1[, atributoN])
+);
+
+```
+< Indicarla al final de la sentencia y asignandole un nombre a la restricción.
+
+```sql
+CREATE TABLE <nombre> (
+    <atributo1> <dominio1>,
+    <atributoN> <dominioN>,
+    CONSTRAINT <nombreconstraint>
+    PRIMARY KEY (atributo1[, atributoN])
+);
+
+```
+
