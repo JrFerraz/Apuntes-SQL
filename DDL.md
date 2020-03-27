@@ -3,7 +3,8 @@
 ## Índice
 - [Qué es el sublenguaje DDL](#QUÉ-ES-EL-SUBLENGUAJE-DDL)
 - [Tipos de datos](#TIPOS-DE-DATOS)
-
+- [Sentencia CREATE](#SENTENCIA-CREATE)
+  - [CREAR BASE DE DATOS](#CREAR-BASE-DE-DATOS)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -32,3 +33,27 @@ Dentro del DDL, hay muchísima variedad de datos, pero varias según el gestor q
 | MONEY         | Uso para moneda de hasta 4 cifras decimales                                              |
 | UUID          | identificador universal único de 128 bits                                                |
 | JSON          | para archivos JSON (JavaScript Object Notation)                                          |
+
+## SENTENCIA CREATE
+Es la sentencia que se utiliza para crear una base de datos u objetos dentro de esa base de datos (tabla, usuario,dominio, vista ...) 
+
+## CREAR BASES DE DATOS.
+La sentencia CREATE permite crear bases de datos de dos formas:
+- CREATE DATABASE
+ ```sql
+  CREATE DATABASE
+       [IF NOT EXITS] myDB 
+       [CHARACTER SET nombredecharset] ;
+
+```
+> CREATE DATABASE tiene permisos muy restrictivos
+
+- CREATE SCHEMA
+ ```sql
+  CREATE SCHEMA
+       [IF NOT EXITS] myDB 
+       [CHARACTER SET nombredecharset] ;
+
+```
+> CREATE SCHEMA tiene permisos menos restrictivos
+
