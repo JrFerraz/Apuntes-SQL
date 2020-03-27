@@ -12,7 +12,7 @@
   - [Borrar tablas dentro de una base de datos](#BORRAR-TABLAS)
 - [Sentencia ALTER](#SENTENCIA-ALTER)
   - [Modificar tablas de una base de datos](#MODIFICAR-UNA-TABLA)
-- [CONSTRAINTS](#CONSTRAINTS)
+- [Constraints](#CONSTRAINTS)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -214,3 +214,50 @@ Para la restricción de clave foránea, se debe indicar la forma en la que se mo
 - CASCADE (C) : Borra en las tablas donde el dato esté presente.
 - SET NULL (N) : Se establecen valores nulos cuando se borran datos.
 - SET DEFAULT (D) : Agrega valores por defecto, puede comprometer la integridad de las tablas afectadas.
+
+###  ``` CHECKS ```
+Esta restricción permite limitar los valores que se le pueden indicar a un atributo. Una de las grandes ventajas de los checks es que se pueden realizar en su interior predicados WHERE (siempre y cuando los datos estén en la misma tabla). 
+
+
+> Indicarla en la propia línea.
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>  CHECK (<predicado> EJ: <atributo1> >= <atributo2>) , ...
+[NOT DEFERRABLE | DEFERRABLE]
+	         [INITIALLY IMMEDIATE | INITIALLY DEFERRED]
+);
+
+```
+> Declararlo al final de la sentencia
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>,  ...
+  CHECK (<predicado>
+[NOT DEFERRABLE | DEFERRABLE]
+	         [INITIALLY IMMEDIATE | INITIALLY DEFERRED]
+);
+
+```
+> Declararlo al final de la sentencia asignandole un nombre a la restricción
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>,  ...
+  CONSTRAINT <nombreconstraint>
+  CHECK (<predicado>
+[NOT DEFERRABLE | DEFERRABLE]
+	         [INITIALLY IMMEDIATE | INITIALLY DEFERRED]
+);
+```
+> Usando Alter
+```sql
+ALTER TABLE <nombretabla>
+ ADD CONSTRAINT <nombreconstraint>
+  CHECK (<predicado>
+[NOT DEFERRABLE | DEFERRABLE]
+	         [INITIALLY IMMEDIATE | INITIALLY DEFERRED]
+);
+```
+> NOTA IMPORTANTE: LOS PARÁMETROS OPCIONALES INDICAN SI EL CHECK SE EJECUTA INMEDIAMENTE O AL FINAL.
