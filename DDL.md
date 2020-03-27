@@ -215,7 +215,7 @@ Para la restricción de clave foránea, se debe indicar la forma en la que se mo
 - SET NULL (N) : Se establecen valores nulos cuando se borran datos.
 - SET DEFAULT (D) : Agrega valores por defecto, puede comprometer la integridad de las tablas afectadas.
 
-###  ``` CHECKS ```
+### -  ``` CHECKS ```
 Esta restricción permite limitar los valores que se le pueden indicar a un atributo. Una de las grandes ventajas de los checks es que se pueden realizar en su interior predicados WHERE (siempre y cuando los datos estén en la misma tabla). 
 
 
@@ -260,4 +260,41 @@ ALTER TABLE <nombretabla>
 	         [INITIALLY IMMEDIATE | INITIALLY DEFERRED]
 );
 ```
-> NOTA IMPORTANTE: LOS PARÁMETROS OPCIONALES INDICAN SI EL CHECK SE EJECUTA INMEDIAMENTE O AL FINAL.
+> 🚩 NOTA IMPORTANTE: LOS PARÁMETROS OPCIONALES INDICAN SI EL CHECK SE EJECUTA INMEDIAMENTE O AL FINAL.
+
+## -  ``` UNIQUE ``` y ``` NOT NULL ```
+Restricción que permite que un atributo tenga unicidad, que tome un valor único. Usando UNIQUE + NOT NULL se pueden crear claves alternativas.
+
+> Indicarla en la propia línea.
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1> UNIQUE,
+ 
+);
+
+```
+> Declararlo al final de la sentencia
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>,  ...
+  UNIQUE (<atributo1>, [<atributo2>...])
+);
+
+```
+> Declararlo al final de la sentencia asignandole un nombre a la restricción
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>,  ...
+  CONSTRAINT <nombreconstraint>
+  UNIQUE (<atributo1>[, <atributo2>...])
+);
+```
+> Usando Alter
+```sql
+ALTER TABLE <nombretabla>
+ ADD CONSTRAINT <nombreconstraint>
+  UNIQUE (<atributo1>[, <atributo2>...])
+);
+```
