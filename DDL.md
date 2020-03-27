@@ -124,3 +124,7 @@ ALTER TABLE [IF EXISTS] <nombretabla>
 	 [ADD | DROP [COLUMN | CONSTRAINT] <nombre>] ... ;
 
 ```
+## CONSTRAINT
+Los ``` CONSTRAINT ``` son restricciones que se pueden agregar en las sentencias ``` CREATE TABLE ``` y ``` ALTER TABLE ``` y permiten establecer claves primarias, claves foráneas, checks, unicidad, límite de valores ...
+
+### - ``` PRIMARY KEY ```
