@@ -159,4 +159,58 @@ CREATE TABLE <nombre> (
 );
 
 ```
+### - ``` FOREIGN KEY ```
+Restricción de clave foránea. Sirve para interrelacionar tablas de una base de datos y pueden existir varias por tabla.
+Hay varias formas de establecer esta restricción:
 
+> Indicarla en la propia línea.
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1> 
+  REFERENCES <nombretablaquequeremosreferenciar> [(<nombreatributoreferenciado>]),  ...
+	[MATCH FULL | PARTIAL] 
+	[ON DELETE CASCADE|NO ACTION|SET NULL|SET DEFAULT]
+	[ON UPDATE CASCADE|NO ACTION|SET NULL|SET DEFAULT]
+
+);
+
+```
+> Declararlo al final de la sentencia
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>,  ...
+  FOREIGN KEY (<atributo1>[, <atributo2>, ...])
+    REFERENCES <nombretablaareferenciar> (<nombreatributoreferenciado1>,[<atributoreferenciado2>...]>)
+    ON DELETE [CASCADE | NO ACTION | SET NULL | SET DEFAULT <x>]
+    ON UPDATE [CASCADE | NO ACTION | SET NULL | SET DEFAULT <x>]
+);
+
+```
+> Declararlo al final de la sentencia asignandole un nombre a la restricción
+```sql
+CREATE TABLE <nombretabla> (
+  <atributo1> <dominio1>,
+  <atributo2> <dominio2>,  ...
+  CONSTRAINT <nombreconstraint>
+  FOREIGN KEY (<atributo1>[, <atributo2>, ...])
+    REFERENCES <nombretablaareferenciar> (<nombreatributoreferenciado1>,[<atributoreferenciado2>...]>)
+    ON DELETE [CASCADE | NO ACTION | SET NULL | SET DEFAULT <x>]
+    ON UPDATE [CASCADE | NO ACTION | SET NULL | SET DEFAULT <x>]
+);
+```
+> Usando Alter
+```sql
+ALTER TABLE <nombretabla>
+ ADD CONSTRAINT <nombreconstraint>
+  FOREIGN KEY (<atributo1>[, <atributo2>, ...])
+    REFERENCES <nombretablaareferenciar> (<nombreatributoreferenciado1>,[<atributoreferenciado2>...]>)
+    ON DELETE [CASCADE | NO ACTION | SET NULL | SET DEFAULT <x>]
+    ON UPDATE [CASCADE | NO ACTION | SET NULL | SET DEFAULT <x>]
+);
+```
+Para la restricción de clave foránea, se debe indicar la forma en la que se modificarán o borraran los datos en la interrelación:
+- NO ACTION (R) : Por Defecto. No altera datos durante el proceso.
+- CASCADE (C) : Borra en las tablas donde el dato esté presente.
+- SET NULL (N) : Se establecen valores nulos cuando se borran datos.
+- SET DEFAULT (D) : Agrega valores por defecto, puede comprometer la integridad de las tablas afectadas.
