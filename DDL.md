@@ -7,6 +7,9 @@
   - [Crear bases de datos](#CREAR-BASE-DE-DATOS)
   - [Crear dominio](#CREAR-DOMINIO)
   - [Crear tablas](#CREAR-TABLA)
+- [Sentencia DROP](#SENTENCIA-DROP)
+  - [Borrar una base de datos](#BORRAR-BASE-DE-DATOS)
+  - [Borrar tablas dentro de una base de datos](#BORRAR-TABLAS)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -78,3 +81,30 @@ La sentencia ```CREATE TABLE``` se utiliza para crear tablas dentro de una base 
 
 
 ```
+## SENTENCIA DROP
+Es la sentencia que se utiliza para eliminar una base de datos u objetos dentro de esa base de datos como una tabla.
+
+## BORRAR BASE DE DATOS
+Las sentencias ```DROP SCHEMA``` y ```DROP DATABASE``` se utiliza para borrar bases de datos con la siguiente sintaxis:
+
+ ```sql
+ DROP SCHEMA [IF EXISTS] <nombrebasededatos>
+[CASCADE | RESTRICT ] ;
+
+```
+Hay dos opciones para borrar la base de datos:
+- ``` RESTRICT ```: Protege los datos almacenados en la base de datos si no está vacía. Es la opción por defecto.
+- ``` CASCADE ```: Borra la totalidad de la base de datos aunque no esté vacía.
+
+## BORRAR TABLA
+La sentencias ```DROP TABLE``` se utiliza para borrar tablas dentro de una base de datos con la siguiente sintaxis:
+
+ ```sql
+ DROP TABLE [IF EXISTS] <nombretabla>
+[CASCADE | RESTRICT ] ;
+
+```
+Hay dos opciones para borrar la tabla:
+- ``` RESTRICT ```: Protege los datos almacenados en la tabla si no está vacía. Es la opción por defecto.
+- ``` CASCADE ```: Borra la totalidad de la tabla aunque no esté vacía.
+
