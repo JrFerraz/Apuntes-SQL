@@ -22,7 +22,8 @@ Es la sentencia que se utiliza para agregar tuplas a una tabla dentro de una bas
 		(<valor2A>, <valor2B>, <valor2X>), ...
 	;
 ```
-> EJEMPLO: Agregamos a la tabla alumnos (que tiene los atributos nif, nombre y apellidos) a Adrián Merino con NIF 12345678P, Jacinto Losada con NIF 87654321Q y Maria Corrubedo con NIF 88888888O.
+- EJEMPLO:
+> Agregamos a la tabla alumnos (que tiene los atributos nif, nombre y apellidos) a Adrián Merino con NIF 12345678P, Jacinto Losada con NIF 87654321Q y Maria Corrubedo con NIF 88888888O.
  ```sql
   INSERT INTO alumnos
   (nif, nombre, apellidos)
