@@ -11,7 +11,7 @@ Instalaremos el gestor de bases de datos MariaDB en Windows 10 a través de line
 
 > Abrimos Ubuntu y esperamos a que instale 
 
-![3](./img/installdb/3.jpg)
+![3](./img/installdb/3.JPG)
 
 > Nos pedirá que le indiquemos un usuario y una contraseña
  
@@ -25,3 +25,12 @@ Instalaremos el gestor de bases de datos MariaDB en Windows 10 a través de line
 
 ![6](./img/installdb/6.JPG)
 
+> Finalizados los pasos previos, ahora procedemos a instalar MariaDB con el comando ```sudo apt-get install mariadb-server´´´
+
+![7](./img/installdb/7.JPG)
+
+> Acabada la instalación, procederemos a abrir el servidor de MariaDB, con el comando ```sudo /etc/init.d/mysql start´´´
+
+![8](./img/installdb/8.JPG)
+
+>
