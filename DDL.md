@@ -13,6 +13,7 @@
 - [Sentencia ALTER](#SENTENCIA-ALTER)
   - [Modificar tablas de una base de datos](#MODIFICAR-UNA-TABLA)
 - [Constraints](#CONSTRAINTS)
+- [Ejemplo de como aplicar las sentencias](#EJEMPLO)
 ## QUÉ ES EL SUBLENGUAJE DDL
 EL ```DDL``` (Data Definition Language) permite dentro de un sistema gestor de base de datos definir las estructuras de la base de datos como también los procedimientos de consulta de esos datos.
 Las tres principales sentencias dentro de este sublenguaje son:
@@ -27,7 +28,7 @@ Dentro del DDL, hay muchísima variedad de datos, pero varias según el gestor q
 | **texto**     |                                                                                          |
 | CHAR(n)       | de longitud fija                                                                         |
 | VARCHAR(n)    | de longitud variable                                                                     |
-| TEXT          | lonixutde variable e ilimitada                                                           |
+| TEXT          | de longitud variable e ilimitada                                                           |
 | **numeros**   |                                                                                          |
 | INTEGER       | número entero                                                                            |
 | DECIMAL(n,m)  | número decimal con precisión (n=entero, m=decimal)                                       |
@@ -298,3 +299,7 @@ ALTER TABLE <nombretabla>
   UNIQUE (<atributo1>[, <atributo2>...])
 );
 ```
+## EJEMPLO
+Partiendo del siguiente ejercicio hecho en clase, pondremos en práctica las sentencias de los apuntes.
+
+![ejercicio_](./img/ddl/ejercicio.jpeg)
