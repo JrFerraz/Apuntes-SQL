@@ -4,6 +4,7 @@
 ## Índice
 - [Qué es el sublenguaje DML](#QUÉ-ES-EL-SUBLENGUAJE-DML)
 - [Sentencia INSERT](#INSERT)
+- [Sentencia UPDATE](#UPDATE)
 ## QUÉ ES EL SUBLENGUAJE DML
 EL ```DML``` (Data Manipulation Language) permite dentro de un sistema gestor de base de datos llevar a cabo tareas de consulta o de modificación/eliminación de los datos de una base de datos.
 
@@ -34,3 +35,41 @@ Es la sentencia que se utiliza para agregar tuplas a una tabla dentro de una bas
 ;
 
 ```
+## UPDATE
+Es la sentencia que se utiliza para actualizar los valores de una tupla o añadirlos si esos datos aceptan nulos, dentro de una tabla de una base de datos, con la siguiente sintaxis:
+ ```sql
+ UPDATE <nombretabla>
+       SET <atributo1> = <valor1>,
+	   <atributo2> = <valor2>, ...
+      [WHERE <predicado>];
+	
+```
+- EJEMPLO:
+> Teniendo la tabla alumnos y suponiendo que el atributo apellidos acepta nulos
+| NIF               | nombre      | Apellidos      |
+|-------------------|-------------|----------------|
+| 12345678P         | Adrián      | Merino         |
+| 87654321Q         | Jacinto     | Losada         |
+| 88888888O         | Maria       | Corrubedo      |
+| 33333333Q         | Aitana      |                |
+
+> Queremos cambiar el DNI de Maria y ponerle 22222222A , y colocarle un apellido a Aitana.
+
+ ```sql
+UPDATE alumnos
+  SET NIF = '22222222A'
+  WHERE nombre = 'Maria';
+  
+UPDATE alumnos
+  SET Apellidos = 'Martínez'
+  WHERE NIF = '33333333Q ';
+	
+```
+> La tabla quedaría de la siguiente forma
+
+| NIF               | nombre      | Apellidos      |
+|-------------------|-------------|----------------|
+| 12345678P         | Adrián      | Merino         |
+| 87654321Q         | Jacinto     | Losada         |
+| 22222222A         | Maria       | Corrubedo      |
+| 33333333Q         | Aitana      | Martínez       |
