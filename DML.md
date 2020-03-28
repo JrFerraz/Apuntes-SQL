@@ -5,6 +5,7 @@
 - [Qué es el sublenguaje DML](#QUÉ-ES-EL-SUBLENGUAJE-DML)
 - [Sentencia INSERT](#INSERT)
 - [Sentencia UPDATE](#UPDATE)
+- [Sentencia DELETE](#DELETE)
 ## QUÉ ES EL SUBLENGUAJE DML
 EL ```DML``` (Data Manipulation Language) permite dentro de un sistema gestor de base de datos llevar a cabo tareas de consulta o de modificación/eliminación de los datos de una base de datos.
 
@@ -27,7 +28,7 @@ Es la sentencia que se utiliza para agregar tuplas a una tabla dentro de una bas
 > Agregamos a la tabla alumnos (que tiene los atributos nif, nombre y apellidos) a Adrián Merino con NIF 12345678P, Jacinto Losada con NIF 87654321Q y Maria Corrubedo con NIF 88888888O.
  ```sql
   INSERT INTO alumnos
-  (nif, nombre, apellidos)
+  (nif, nombre, apellido)
   VALUES
     ('12345678P', 'Adrián', 'Merino'),
     ('87654321Q', 'Jacinto', 'Losada'),
@@ -46,7 +47,8 @@ Es la sentencia que se utiliza para actualizar los valores de una tupla o añadi
 ```
 - EJEMPLO:
 > Teniendo la tabla alumnos y suponiendo que el atributo apellidos acepta nulos
-| NIF               | nombre      | Apellidos      |
+
+| NIF               | nombre      | Apellido       |
 |-------------------|-------------|----------------|
 | 12345678P         | Adrián      | Merino         |
 | 87654321Q         | Jacinto     | Losada         |
@@ -61,15 +63,47 @@ UPDATE alumnos
   WHERE nombre = 'Maria';
   
 UPDATE alumnos
-  SET Apellidos = 'Martínez'
+  SET Apellido = 'Martínez'
   WHERE NIF = '33333333Q ';
 	
 ```
 > La tabla quedaría de la siguiente forma
 
-| NIF               | nombre      | Apellidos      |
+| NIF               | nombre      | Apellido       |
 |-------------------|-------------|----------------|
 | 12345678P         | Adrián      | Merino         |
+| 87654321Q         | Jacinto     | Losada         |
+| 22222222A         | Maria       | Corrubedo      |
+| 33333333Q         | Aitana      | Martínez       |
+
+## DELETE
+Es la sentencia que se utiliza para borrar datos de las tuplas, dentro de una tabla de una base de datos, con la siguiente sintaxis:
+ ```sql
+ DELETE FROM <nombretablaabla>
+  WHERE <predicado>;
+	
+```
+- EJEMPLO:
+> Teniendo la tabla alumnos
+
+| NIF               | nombre      | Apellido       |
+|-------------------|-------------|----------------|
+| 12345678P         | Adrián      | Merino         |
+| 87654321Q         | Jacinto     | Losada         |
+| 22222222A         | Maria       | Corrubedo      |
+| 33333333Q         | Aitana      | Martínez       |
+
+> Queremos borrar los alumnos que tengan como apellido Merino
+
+ ```sql
+ DELETE FROM alumnos
+  WHERE Apellido = 'Merino';
+	
+```
+> La Tabla quedaría de la siguiente manera
+
+| NIF               | nombre      | Apellido       |
+|-------------------|-------------|----------------|
 | 87654321Q         | Jacinto     | Losada         |
 | 22222222A         | Maria       | Corrubedo      |
 | 33333333Q         | Aitana      | Martínez       |
