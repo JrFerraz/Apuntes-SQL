@@ -424,4 +424,59 @@ ALTER TABLE Grupo
     ON DELETE SET NULL
     ON UPDATE CASCADE;
   
-``
+```
+> 10º PASO: Creación de la tabla participa con sus campos, restriccion de clave principal, clave foránea , los atributos data_inicio y dedicación no pueden ser nulos y un check.
+```sql
+CREATE TABLE Participa (
+  DNI             Tipo_DNI,
+  Código_Proxecto Tipo_Código,
+  Data_Inicio     DATE        NOT NULL,
+  Data_Cese       DATE,
+  Dedicación      INTEGER     NOT NULL,
+  PRIMARY KEY (DNI, Código_Proxecto),
+  CHECK (Data_Inicio < Data_Cese),
+  FOREIGN KEY (DNI)
+    REFERENCES Profesor (DNI)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+  FOREIGN KEY (Código_Proxecto)
+    REFERENCES Proxecto (Código_Proxecto)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
+  
+```
+> 11º PASO: Creación de la tabla programa con su campo, restriccion de clave principal.
+```sql
+CREATE TABLE Programa (
+  Nome_Programa Nome_Válido PRIMARY KEY
+); 
+  
+```
+> 12º PASO: Creación de la tabla Financia con sus campos, restriccion de clave principal compuesta , los atributos numero_programa y cantidade_financiada no pueden ser nulos.
+```sql
+CREATE TABLE Financia (
+  Nome_Programa        Nome_Válido,
+  Código_Proxecto      Tipo_Código,
+  Número_Programa      Tipo_Código NOT NULL,
+  Cantidade_Financiada MONEY       NOT NULL,
+  PRIMARY KEY (Nome_Programa, Código_Proxecto)
+);
+  
+```
+> 13º PASO: Como ejemplo de la sentencia Alter, modificamos la tabla Financia y le agregamos dos claves foráneas.
+```sql
+ALTER TABLE Financia
+  ADD CONSTRAINT FK_Proxecto_Financia
+    FOREIGN KEY (Código_Proxecto)
+    REFERENCES Proxecto
+    ON DELETE Cascade
+    ON UPDATE Cascade;
+
+ALTER TABLE Financia
+  ADD CONSTRAINT FK_Programa_Financia
+    FOREIGN KEY (Nome_Programa)
+    REFERENCES Programa
+    ON DELETE Cascade
+    ON UPDATE Cascade;
+  ```
