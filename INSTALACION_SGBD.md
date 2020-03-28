@@ -45,5 +45,5 @@ Instalaremos el gestor de bases de datos MariaDB en Windows 10 a través de line
 
 ![10](./img/installdb/10.JPG)
 
-> Y con estos pasos, ya tenemos nuestra instalación MariaDB configurada correctamente. Cada vez que queramos entrar, deberemos usar el comando ```mysql -p``` . y a continuación, la contraseña que le hemos asignado al usuario.
+### Y con estos pasos, ya tenemos nuestra instalación MariaDB configurada correctamente. Cada vez que queramos entrar, deberemos usar el comando ```mysql -p``` . y a continuación, la contraseña que le hemos asignado al usuario.
 
