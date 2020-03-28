@@ -51,7 +51,7 @@ La sentencia CREATE permite crear bases de datos de dos formas:
 - ```CREATE DATABASE```
  ```sql
   CREATE DATABASE
-       [IF NOT EXITS] myDB 
+       [IF NOT EXIST] nombrebase
        [CHARACTER SET nombredecharset] ;
 
 ```
@@ -60,7 +60,7 @@ La sentencia CREATE permite crear bases de datos de dos formas:
 - ```CREATE SCHEMA```
  ```sql
   CREATE SCHEMA
-       [IF NOT EXITS] myDB 
+       [IF NOT EXIST] nombrebase 
        [CHARACTER SET nombredecharset] ;
 
 ```
@@ -304,16 +304,55 @@ Partiendo del siguiente ejercicio hecho en clase, pondremos en práctica las sen
 
 ![ejercicio_](./img/ddl/ejercicio.jpeg)
 
-> 1ºPASO: Creación de la base de datos.
+> 1º PASO: Creación de la base de datos.
 ```sql
  CREATE SCHEMA
-       IF NOT EXITS proxectoinvestigacion;
+       IF NOT EXIST proxectoinvestigacion;
      
 ```
-> 2ºPASO: Creación de los dominios
+> 2º PASO: Creación de los dominios
 ```sql
 CREATE DOMAIN Nome_Válido VARCHAR(30);
 CREATE DOMAIN Tipo_Código CHAR(5);
 CREATE DOMAIN Tipo_DNI    CHAR(9);
+     
+```
+> 3º PASO: Creación de la tabla Sede con sus respectivos campos y la restricción de clave principal
+```sql
+CREATE TABLE Sede (
+  Nome_Sede Nome_Válido,
+  Campus    Nome_Válido  NOT NULL,
+  CONSTRAINT PK_Sede
+    PRIMARY KEY (Nome_Sede)
+);
+     
+```
+> 4º PASO: Creación de la tabla Departamento con sus campos con restricciones de clave principal y teléfono no puede ser nulo.
+```sql
+CREATE TABLE Departamento (
+  Nome_Departamento Nome_Válido  PRIMARY KEY,
+  Teléfono          CHAR(9)      NOT NULL,
+  Director          Tipo_DNI
+);
+     
+```
+> 5º PASO: Creación de la tabla Ubicación con sus campos, restriccion de clave principal compuesta, y dos claves foráneas.
+```sql
+CREATE TABLE Ubicación (
+  Nome_Sede         Nome_Válido,
+  Nome_Departamento Nome_Válido,
+  CONSTRAINT PK_Ubicación
+    PRIMARY KEY (Nome_Sede, Nome_Departamento),
+  CONSTRAINT FK_Sede
+    FOREIGN KEY (Nome_Sede)
+    REFERENCES Sede (Nome_Sede)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT FK_Departamento
+    FOREIGN KEY (Nome_Departamento)
+    REFERENCES Departamento (Nome_Departamento)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
      
 ```
