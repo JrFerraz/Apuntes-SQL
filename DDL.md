@@ -303,3 +303,17 @@ ALTER TABLE <nombretabla>
 Partiendo del siguiente ejercicio hecho en clase, pondremos en práctica las sentencias de los apuntes.
 
 ![ejercicio_](./img/ddl/ejercicio.jpeg)
+
+> 1ºPASO: Creación de la base de datos.
+```sql
+ CREATE SCHEMA
+       IF NOT EXITS proxectoinvestigacion;
+     
+```
+> 2ºPASO: Creación de los dominios
+```sql
+CREATE DOMAIN Nome_Válido VARCHAR(30);
+CREATE DOMAIN Tipo_Código CHAR(5);
+CREATE DOMAIN Tipo_DNI    CHAR(9);
+     
+```
