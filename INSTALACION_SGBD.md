@@ -5,7 +5,7 @@ Instalaremos el gestor de bases de datos MariaDB en Windows 10 a través de line
 
 ![1](./img/installdb/1.JPG)
 
-> A continuación abrimos Windows Powershell para activar el subsistema linux para windows con el comando ```Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux´´´ . Nos pedirá reiniciar el equipo.
+> A continuación abrimos Windows Powershell para activar el subsistema linux para windows con el comando ```Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux``` . Nos pedirá reiniciar el equipo.
 
 ![2](./img/installdb/2.jpg)
 
@@ -33,4 +33,17 @@ Instalaremos el gestor de bases de datos MariaDB en Windows 10 a través de line
 
 ![8](./img/installdb/8.JPG)
 
->
+> Ahora, procederemos a configurar el usuario root de MariaDB , ejecutando el comando ```sudo mysql -u root -p```
+
+![9](./img/installdb/9.JPG)
+
+> Ejecutando el comando anterior, ya estamos dentro de la linea de comandos de MariaDB, Ahora, procederemos a crear el usuario con la siguiente sentencia.
+```sql
+  CREATE USER 'Usuario' IDENTIFIED BY 'abc123.';
+```
+(En instalaciones serias, se debe usar una contraseña mucho más segura que esta)
+
+![10](./img/installdb/10.JPG)
+
+> Y con estos pasos, ya tenemos nuestra instalación MariaDB configurada correctamente. Cada vez que queramos entrar, deberemos usar el comando ```mysql -p``` . y a continuación, la contraseña que le hemos asignado al usuario.
+
