@@ -20,8 +20,8 @@ Es la sentencia que se utiliza para agregar tuplas a una tabla dentro de una bas
   INSERT INTO <nombretabla>
 	    [(<atributoA>, <atributoB> ...]
 	    VALUES
-		(<valor1A>, <valor1B>, <valor1X>),
-		(<valor2A>, <valor2B>, <valor2X>), ...
+		(<valor1A>, <valor1B>, <valor1C>),
+		(<valor2A>, <valor2B>, <valor2C>), ...
 	;
 ```
 - EJEMPLO:
@@ -32,8 +32,7 @@ Es la sentencia que se utiliza para agregar tuplas a una tabla dentro de una bas
   VALUES
     ('12345678P', 'Adrián', 'Merino'),
     ('87654321Q', 'Jacinto', 'Losada'),
-    ('88888888O', 'Maria', 'Corrubedo')
-;
+    ('88888888O', 'Maria', 'Corrubedo');
 
 ```
 ## UPDATE
@@ -79,7 +78,7 @@ UPDATE alumnos
 ## DELETE
 Es la sentencia que se utiliza para borrar datos de las tuplas, dentro de una tabla de una base de datos, con la siguiente sintaxis:
  ```sql
- DELETE FROM <nombretablaabla>
+ DELETE FROM <nombretabla>
   WHERE <predicado>;
 	
 ```
