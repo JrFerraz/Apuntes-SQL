@@ -356,3 +356,72 @@ CREATE TABLE Ubicación (
 );
      
 ```
+> 6º PASO: Creación de la tabla Grupo con sus campos, restriccion de clave principal compuesta, clave foránea, y el atributo área no puede ser nulo.
+```sql
+CREATE TABLE Grupo (
+  Nome_Grupo        Nome_Válido,
+  Nome_Departamento Nome_Válido,
+  Área              Nome_Válido NOT NULL,
+  Lider             Tipo_DNI,
+  PRIMARY KEY (Nome_Grupo, Nome_Departamento)
+  FOREIGN KEY (Nome_Departamento) REFERENCES Departamento
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
+);
+     
+```
+> 7º PASO: Creación de la tabla profesor con sus campos, restriccion de clave principal, clave foránea compuesta , y los atributos nome_profesor y titulación no pueden ser nulos.
+```sql
+CREATE TABLE Profesor (
+  DNI            Tipo_DNI    PRIMARY KEY,
+  Nome_Profesor  Nome_Válido NOT NULL, 
+  Titulación     VARCHAR(20) NOT NULL,
+  Experiencia    Integer,
+  N_Grupo        Nome_Válido,
+  N_Departamento Nome_Válido,
+  CONSTRAINT FK_Grupo_Profesor
+    FOREIGN KEY      (N_Grupo,    N_Departamento)
+    REFERENCES Grupo (Nome_Grupo, Nome_Departamento)
+    ON DELETE SET NULL
+    ON UPDATE Cascade
+);
+   
+```
+> 8º PASO: Creación de la tabla proxecto con sus campos, restriccion de clave principal, clave foránea compuesta , los atributos nome_proxecto,orzamento y data_inicio no pueden ser nulos y unicidad en el atributo Nome_Proxecto.
+```sql
+CREATE TABLE Proxecto (
+  Código_Proxecto Tipo_Código  PRIMARY KEY,
+  Nome_Proxecto   Nome_Válido  NOT NULL,
+  Orzamento       MONEY        NOT NULL,
+  Data_Inicio     DATE         NOT NULL,
+  Data_Fin        DATE,
+  N_Gr            Nome_Válido,
+  N_Dep           Nome_Válido,
+  UNIQUE (Nome_Proxecto),
+  CONSTRAINT Check_Dates
+    CHECK (Data_Inicio < Data_Fin),
+  CONSTRAINT FK_Grupo_Proxecto
+    FOREIGN KEY (N_Gr, N_Dep)
+    REFERENCES Grupo
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+);
+  
+```
+> 9º PASO: Para tener ejemplos del funcionamiento de la sentencia Alter, la usaremos para agregar una clave foránea en las tablas Departamento y Grupo.
+```sql
+ALTER TABLE Departamento
+  ADD CONSTRAINT FK_Profesor_Departamento
+    FOREIGN KEY (Director)
+    REFERENCES Profesor (DNI)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE;
+
+ALTER TABLE Grupo
+  ADD CONSTRAINT FK_Profesor_Grupo
+    FOREIGN KEY (Lider)
+    REFERENCES Profesor (DNI)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE;
+  
+``
