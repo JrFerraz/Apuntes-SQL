@@ -1,5 +1,5 @@
 # Ejercicios
-> Implementación de los ejercicios realizados en clase en el sistema de gestión de bases de datos MariaDB.
+> Implementación de los ejercicios realizados en clase en el sistema de gestión de bases de datos MariaDB. [Repositorio de los ejercicios](<https://github.com/davidgchaves/first-steps-with-git-and-github-wirtz-asir1-and-dam1/tree/master/exercicios-ddl>)
 ## Índice
 - [Ejercicio "proxectos de investigación"](#PROXECTOS-DE-INVESTIGACIÓN)
 - [Ejercicio "naves espaciais"](#NAVES-ESPACIAIS)
