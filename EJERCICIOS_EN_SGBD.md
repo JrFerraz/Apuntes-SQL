@@ -115,6 +115,29 @@ CREATE TABLE PROXECTO (
 
 ![ejer1paso8](./img/ejer/ejer1paso8.JPG)
 
+>9º PASO: Creamos la tabla programa con sus atributo nome_programa con una clave primaria que es nome_programa.
+```sql
+CREATE TABLE PROGRAMA (
+  nome_programa        VARCHAR(30)   PRIMARY KEY
+);
+```
+
+![ejer1paso9](./img/ejer/ejer1paso9.JPG)
+
+
+>10º PASO: Creamos la tabla financia con sus atributos nome_programa, codigo_proxecto, numero_programa, cantidade_financiada (tenemos que usar tipo de dato decimal, ya que MariaDB no permite el tipo money) con una clave primaria que es nome_programa y codigo_proxecto, además, numero_programa y cantidade_financiada no pueden ser nulos.
+```sql
+CREATE TABLE FINANCIA (
+  nome_programa        VARCHAR(30),
+  codigo_proxecto      CHAR(5),
+  numero_programa      CHAR(5)       NOT NULL,
+  cantidade_financiada DECIMAL(15,2) NOT NULL,
+  PRIMARY KEY (nome_programa, codigo_proxecto)
+);
+```
+
+![ejer1paso10](./img/ejer/ejer1paso10.JPG)
+
 
 ## NAVES ESPACIAIS
 O Ministerio da Exploración Interplanetaria da Federación Unida de Planetas desexa desenvolver un Sistema de Información para a nave espacial Stanisław Lem 72 que proximamente se lanzará ao espazo.
