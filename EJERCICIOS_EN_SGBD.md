@@ -72,7 +72,7 @@ CREATE TABLE GRUPO (
 
 ![ejer1paso5](./img/ejer/ejer1paso5.JPG)
 
->6º PASO: Creamos la tabla profesor con sus atributos dni, nome_profesor,titulacion,experiencia,grupo y departamento con una clave primaria que es dni y nome_grupo, además, nome_profesor y titulacion no acepta nulos.
+>6º PASO: Creamos la tabla profesor con sus atributos dni, nome_profesor,titulacion,experiencia,grupo y departamento con una clave primaria que es dni , además, nome_profesor y titulacion no acepta nulos.
 ```sql
 CREATE TABLE PROFESOR (
   dni                  CHAR(9)       PRIMARY KEY,
@@ -86,6 +86,34 @@ CREATE TABLE PROFESOR (
 
 ![ejer1paso6](./img/ejer/ejer1paso6.JPG)
 
+>7º PASO: Creamos la tabla participa con sus atributos dni, codigo_proxecto, data_inicio ,data_cese ,dedicacion con una clave primaria compuesta que es dni y codigo_proxecto, además, data_inicio y dedicacion no acepta nulos.
+```sql
+CREATE TABLE PARTICIPA (
+  dni                  CHAR(9),
+  codigo_proxecto      CHAR(5),
+  data_inicio          DATE          NOT NULL,
+  data_cese            DATE,
+  dedicacion           INTEGER       NOT NULL,
+  PRIMARY KEY (dni, codigo_proxecto)
+);
+```
+
+![ejer1paso7](./img/ejer/ejer1paso7.JPG)
+
+>8º PASO: Creamos la tabla proxecto con sus atributos codigo_proxecto, nome_proxecto (tiene que tener unicidad), orzamento, data_inicio ,data_fin, grupo y departamento con una clave primaria que es codigo_proxecto, además, data_inicio, nome_proxecto y orzamento no acepta nulos.
+```sql
+CREATE TABLE PROXECTO (
+  codigo_proxecto      CHAR(5)       PRIMARY KEY,
+  nome_proxecto        VARCHAR(30)   NOT NULL  UNIQUE,
+  orzamento            DECIMAL(15,2) NOT NULL,
+  data_inicio          DATE          NOT NULL,
+  data_fin             DATE,
+  grupo                VARCHAR(30),
+  departamento         VARCHAR(30)
+);
+```
+
+![ejer1paso8](./img/ejer/ejer1paso8.JPG)
 
 
 ## NAVES ESPACIAIS
