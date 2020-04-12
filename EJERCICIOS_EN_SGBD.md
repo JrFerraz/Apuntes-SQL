@@ -259,3 +259,30 @@ CREATE TABLE SERVIZO (
 ```
 
 ![ejer2paso2](./img/ejer/ejer2paso2.JPG)
+
+>3º PASO: Creamos la tabla dependencia con los atributos codigo_dependencia, nome_dependencia (con unicidad), clave_servizo, nome_servizo, funcion y localizacion , siendo la clave primaria codigo_dependencia, además, nome_dependencia,clave_servizo y nome_servizo no pueden ser nulos.
+```sql
+CREATE TABLE DEPENDENCIA (
+  codigo_dependencia CHAR(5)     PRIMARY KEY,
+  nome_dependencia   VARCHAR(30) NOT NULL UNIQUE,
+  clave_servizo      CHAR(5)     NOT NULL,
+  nome_servizo       VARCHAR(30) NOT NULL,
+  funcion            VARCHAR(30),
+  localizacion       VARCHAR(30)
+);
+```
+
+![ejer2paso3](./img/ejer/ejer2paso3.JPG)
+
+>4º PASO: Creamos la tabla camara con los atributos codigo_dependencia, categoria y capacidade , siendo la clave primaria codigo_dependencia, además, categoria y capacidade no pueden ser nulos.
+```sql
+CREATE TABLE CAMARA (
+  codigo_dependencia CHAR(5)     PRIMARY KEY,
+  categoria          VARCHAR(30) NOT NULL,
+  capacidade         INTEGER     NOT NULL
+);
+
+```
+
+![ejer2paso4](./img/ejer/ejer2paso4.JPG)
+
