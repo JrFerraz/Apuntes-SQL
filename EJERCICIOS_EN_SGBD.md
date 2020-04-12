@@ -242,3 +242,20 @@ De cada planeta coñécese o seu nome e código, a galaxia e coordenadas nas que
 
 ![Esquema relacional2](./img/ejer/esquema2.jpeg)
 
+>1º PASO: Creamos la base de datos.
+```sql
+CREATE SCHEMA NavesEspaciais;
+```
+
+![ejer2paso1](./img/ejer/ejer2paso1.JPG)
+
+>2º PASO: Creamos la tabla servizo con los atributos clave_servizo y nome_servizo , siendo la clave primaria compuesta clave_servizo, nome_servizo.
+```sql
+CREATE TABLE SERVIZO (
+  clave_servizo      CHAR(5),
+  nome_servizo       VARCHAR(30),
+  PRIMARY KEY (clave_servizo, nome_servizo)
+);
+```
+
+![ejer2paso2](./img/ejer/ejer2paso2.JPG)
