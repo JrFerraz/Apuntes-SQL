@@ -286,3 +286,34 @@ CREATE TABLE CAMARA (
 
 ![ejer2paso4](./img/ejer/ejer2paso4.JPG)
 
+>5º PASO: Creamos la tabla tripulacion con los atributos codigo_tripulacion, nome_tripulacion, codigo_camara, codigo_dependencia, categoria, antiguidade (por defecto es 0), procedencia y situacion_admin , siendo la clave primaria codigo_tripulacion, además, todos los atributos no pueden ser nulos.
+```sql
+CREATE TABLE TRIPULACION (
+  codigo_tripulacion CHAR(5)     PRIMARY KEY,
+  nome_tripulacion   VARCHAR(30) NOT NULL,
+  codigo_camara      CHAR(5)     NOT NULL,
+  codigo_dependencia CHAR(5)     NOT NULL,
+  categoria          VARCHAR(30) NOT NULL,
+  antiguidade        INTEGER     NOT NULL DEFAULT 0,
+  procedencia        VARCHAR(30) NOT NULL,
+  situacion_admin    VARCHAR(30) NOT NULL
+);
+
+```
+
+![ejer2paso5](./img/ejer/ejer2paso5.JPG)
+
+>6º PASO: Creamos la tabla visita con los atributos codigo_tripulacion, codigo_planeta, data_visita y tem`p , siendo la clave primaria compuesta por codigo_tripulacion, codigo_planeta, data_visita y  además, tempo no pueden ser nulo.
+```sql
+CREATE TABLE VISITA (
+  codigo_tripulacion CHAR(5),
+  codigo_planeta     CHAR(5),
+  data_visita        DATE,
+  tempo              INTEGER     NOT NULL,
+  PRIMARY KEY (codigo_tripulacion, codigo_planeta, data_visita)
+);
+
+```
+
+![ejer2paso6](./img/ejer/ejer2paso6.JPG)
+
