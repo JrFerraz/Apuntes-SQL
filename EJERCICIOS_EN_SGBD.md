@@ -4,6 +4,7 @@
 - [Ejercicio "proxectos de investigación"](#PROXECTOS-DE-INVESTIGACIÓN)
 - [Ejercicio "naves espaciais"](#NAVES-ESPACIAIS)
 
+ > 🚩IMPORTANTE: En MariaDB no se pueden crear dominios ni tampoco usar el tipo de dato MONEY. También se agregarán las claves foráneas al final de todo el proceso con la función ALTER, aprovechando que ya estarán todas las tablas creadas de la base de datos.
 ## PROXECTOS DE INVESTIGACIÓN
 Na Universidade de A Coruña deséxase levar un control sobre os proxectos de investigación que se desenvolven. Para iso decídese empregar unha base de datos que conteña toda a información sobre os proxectos, departamentos, grupos de investigación e profesores.
 
@@ -19,6 +20,23 @@ Un profesor pode participar en varios proxectos. En cada proxecto incorpórase n
 
 ![Esquema relacional](./img/ejer/esquema1.jpeg)
 
+>1º PASO: Creamos la base de datos.
+```sql
+CREATE SCHEMA ProxectosInvestigacion;
+```
+
+![ejer1paso1](./img/ejer/ejer1paso1.JPG)
+
+>2º PASO: Creamos la tabla SEDE con sus atributos nome_sede y campus.
+```sql
+CREATE TABLE SEDE (
+  nome_sede            VARCHAR(30)   PRIMARY KEY,
+  campus               VARCHAR(30)   NOT NULL
+);
+```
+
+![ejer1paso2](./img/ejer/ejer1paso2.JPG)
+
 ## NAVES ESPACIAIS
 O Ministerio da Exploración Interplanetaria da Federación Unida de Planetas desexa desenvolver un Sistema de Información para a nave espacial Stanisław Lem 72 que proximamente se lanzará ao espazo.
 
@@ -31,3 +49,4 @@ Doutra banda, deséxanse coñecer os planetas que visitou cada membro da tripula
 De cada planeta coñécese o seu nome e código, a galaxia e coordenadas nas que se atopa. Algúns planetas atópanse poboados por diversas razas, cada unha nunha certa cantidade de individuos. De cada raza almacénase información sobre o nome, poboación total e dimensións medias (altura, anchura, peso).
 
 ![Esquema relacional2](./img/ejer/esquema2.jpeg)
+
