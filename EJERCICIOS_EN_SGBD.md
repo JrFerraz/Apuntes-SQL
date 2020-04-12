@@ -37,6 +37,29 @@ CREATE TABLE SEDE (
 
 ![ejer1paso2](./img/ejer/ejer1paso2.JPG)
 
+>3º PASO: Creamos la tabla ubicación con sus atributos nome_sede y nome_departamento con una clave primaria compuesta por ambos atributos.
+```sql
+CREATE TABLE UBICACION (
+  nome_sede            VARCHAR(30),
+  nome_departamento    VARCHAR(30),
+  PRIMARY KEY (nome_sede, nome_departamento)
+);
+```
+
+![ejer1paso3](./img/ejer/ejer1paso3.JPG)
+
+>4º PASO: Creamos la tabla departamento con sus atributos nome_departamento,telefono y director con una clave primaria que es nome_departamento, además, telefono no acepta nulos.
+```sql
+CREATE TABLE DEPARTAMENTO (
+  nome_departamento    VARCHAR(30)   PRIMARY KEY,
+  telefono             CHAR(9)       NOT NULL,
+  director             CHAR(9)
+);
+```
+
+![ejer1paso4](./img/ejer/ejer1paso4.JPG)
+
+
 ## NAVES ESPACIAIS
 O Ministerio da Exploración Interplanetaria da Federación Unida de Planetas desexa desenvolver un Sistema de Información para a nave espacial Stanisław Lem 72 que proximamente se lanzará ao espazo.
 
