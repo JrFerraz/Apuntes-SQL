@@ -343,3 +343,90 @@ CREATE TABLE HABITA (
 
 ![ejer2paso8](./img/ejer/ejer2paso8.JPG)
 
+>9º PASO: Creamos la tabla raza  con los atributos nome_raza, altura, anchura, peso y poboacion_totalparcial, siendo la clave primaria nome_raza  además, todos los atributos no pueden ser nulo.
+```sql
+CREATE TABLE RAZA (
+  nome_raza          VARCHAR(30) PRIMARY KEY,
+  altura             INTEGER     NOT NULL,
+  anchura            INTEGER     NOT NULL,
+  peso               INTEGER     NOT NULL,
+  poboacion_total    INTEGER     NOT NULL
+);
+
+```
+
+![ejer2paso9](./img/ejer/ejer2paso9.JPG)
+
+>10º PASO: Agregamos las claves foráneas con la función ALTER, para distinguirlas fácilmente en un futuro les pondremos un nombre del tipo "CF_nombreconstraint".
+```sql
+ALTER TABLE DEPENDENCIA
+  ADD CONSTRAINT CF_SERVIZODEPENDENCIA
+    FOREIGN KEY (clave_servizo, nome_servizo)
+    REFERENCES SERVIZO (clave_servizo, nome_servizo)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE CAMARA
+  ADD CONSTRAINT CF_DEPENDENCIACAMARA
+    FOREIGN KEY (codigo_dependencia)
+    REFERENCES DEPENDENCIA (codigo_dependencia)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE TRIPULACION
+  ADD CONSTRAINT CF_CAMARATRIPULACION
+    FOREIGN KEY (codigo_camara)
+    REFERENCES CAMARA (codigo_dependencia)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE,
+  ADD CONSTRAINT CF_DEPENDENCIATRIPULACION
+    FOREIGN KEY (codigo_dependencia)
+    REFERENCES DEPENDENCIA (codigo_dependencia)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE VISITA
+  ADD CONSTRAINT CF_TRIPULACIONVISITA
+    FOREIGN KEY (codigo_tripulacion)
+    REFERENCES TRIPULACION (codigo_tripulacion)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE,
+  ADD CONSTRAINT CF_PLANETAVISITA
+    FOREIGN KEY (codigo_planeta)
+    REFERENCES PLANETA (codigo_planeta)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE HABITA
+  ADD CONSTRAINT CF_PLANETAHABITA
+    FOREIGN KEY (codigo_planeta)
+    REFERENCES PLANETA (codigo_planeta)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE,
+  ADD CONSTRAINT CF_RAZAHABITA
+    FOREIGN KEY (nome_raza)
+    REFERENCES RAZA (nome_raza)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+
+```
+
+![ejer2paso10](./img/ejer/ejer2paso10.JPG)
+
+
+>11º PASO: Creamos algun CHECK, por ejemplo, en la tabla camara, el atributo capacidade tiene que ser superior a 0.
+```sql
+ALTER TABLE CAMARA
+  ADD CONSTRAINT CHECK_SUPERIORCERO
+    CHECK (capacidade > 0)
+;
+
+```
+
+![ejer2paso11](./img/ejer/ejer2paso11.JPG)
+
