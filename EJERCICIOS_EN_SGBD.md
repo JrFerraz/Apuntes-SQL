@@ -303,7 +303,7 @@ CREATE TABLE TRIPULACION (
 
 ![ejer2paso5](./img/ejer/ejer2paso5.JPG)
 
->6º PASO: Creamos la tabla visita con los atributos codigo_tripulacion, codigo_planeta, data_visita y tem`p , siendo la clave primaria compuesta por codigo_tripulacion, codigo_planeta, data_visita y  además, tempo no pueden ser nulo.
+>6º PASO: Creamos la tabla visita con los atributos codigo_tripulacion, codigo_planeta, data_visita y tempo , siendo la clave primaria compuesta por codigo_tripulacion, codigo_planeta, data_visita y  además, tempo no pueden ser nulo.
 ```sql
 CREATE TABLE VISITA (
   codigo_tripulacion CHAR(5),
@@ -316,4 +316,30 @@ CREATE TABLE VISITA (
 ```
 
 ![ejer2paso6](./img/ejer/ejer2paso6.JPG)
+
+>7º PASO: Creamos la tabla planeta  con los atributos codigo_planeta, nome_planeta (unicidad), galaxia y coordenadas (unicidad , siendo la clave primaria codigo_planeta y  además, todos los atributos no pueden ser nulo.
+```sql
+CREATE TABLE PLANETA (
+  codigo_planeta     CHAR(5)     PRIMARY KEY,
+  nome_planeta       VARCHAR(30) NOT NULL UNIQUE,
+  galaxia            VARCHAR(30) NOT NULL,
+  coordenadas        CHAR(15)    NOT NULL UNIQUE
+);
+
+```
+
+![ejer2paso7](./img/ejer/ejer2paso7.JPG)
+
+>8º PASO: Creamos la tabla habita  con los atributos codigo_planeta, nome_raza y poboacion_parcial, siendo la clave primaria codigo_planeta y nome_raza  además, poboacion_parcial no pueden ser nulo.
+```sql
+CREATE TABLE HABITA (
+  codigo_planeta     CHAR(5),
+  nome_raza          VARCHAR(30),
+  poboacion_parcial  INTEGER     NOT NULL,
+  PRIMARY KEY (codigo_planeta, nome_raza)
+);
+
+```
+
+![ejer2paso8](./img/ejer/ejer2paso8.JPG)
 
