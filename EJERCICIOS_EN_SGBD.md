@@ -59,6 +59,34 @@ CREATE TABLE DEPARTAMENTO (
 
 ![ejer1paso4](./img/ejer/ejer1paso4.JPG)
 
+>5º PASO: Creamos la tabla grupo con sus atributos nome_grupo, nome_departamento,area y lider con una clave primaria compuesta que es nome_departamento y nome_grupo, además, area no acepta nulos.
+```sql
+CREATE TABLE GRUPO (
+  nome_grupo           VARCHAR(30),
+  nome_departamento    VARCHAR(30),
+  area                 VARCHAR(30)   NOT NULL,
+  lider                CHAR(9),
+  PRIMARY KEY (nome_grupo, nome_departamento)
+);
+```
+
+![ejer1paso5](./img/ejer/ejer1paso5.JPG)
+
+>6º PASO: Creamos la tabla profesor con sus atributos dni, nome_profesor,titulacion,experiencia,grupo y departamento con una clave primaria que es dni y nome_grupo, además, nome_profesor y titulacion no acepta nulos.
+```sql
+CREATE TABLE PROFESOR (
+  dni                  CHAR(9)       PRIMARY KEY,
+  nome_profesor        VARCHAR(30)   NOT NULL, 
+  titulacion           VARCHAR(20)   NOT NULL,
+  experiencia          INTEGER,
+  grupo                VARCHAR(30),
+  departamento         VARCHAR(30)
+);
+```
+
+![ejer1paso6](./img/ejer/ejer1paso6.JPG)
+
+
 
 ## NAVES ESPACIAIS
 O Ministerio da Exploración Interplanetaria da Federación Unida de Planetas desexa desenvolver un Sistema de Información para a nave espacial Stanisław Lem 72 que proximamente se lanzará ao espazo.
