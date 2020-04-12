@@ -138,6 +138,96 @@ CREATE TABLE FINANCIA (
 
 ![ejer1paso10](./img/ejer/ejer1paso10.JPG)
 
+>11º PASO: Agregamos las claves foráneas con la función ALTER, para distinguirlas fácilmente en un futuro les pondremos un nombre del tipo "CF_nombreconstraint".
+```sql
+ALTER TABLE UBICACION
+  ADD CONSTRAINT CF_SEDEUBICACION
+    FOREIGN KEY          (nome_sede)
+    REFERENCES SEDE         (nome_sede)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+  ADD CONSTRAINT CF_DEPARTAMENTOUBICACION
+    FOREIGN KEY      (nome_departamento)
+    REFERENCES DEPARTAMENTO (nome_departamento)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE DEPARTAMENTO
+  ADD CONSTRAINT CF_PROFESORDEPARTAMENTO
+    FOREIGN KEY           (director)
+    REFERENCES PROFESOR     (dni)
+    ON DELETE  SET NULL
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE GRUPO
+  ADD CONSTRAINT CF_DEPARTAMENTOGRUPO
+    FOREIGN KEY             (nome_departamento)
+    REFERENCES DEPARTAMENTO (nome_departamento)
+    ON DELETE  CASCADE 
+    ON UPDATE  CASCADE,
+  ADD CONSTRAINT CF_PROFESORGRUPO
+    FOREIGN KEY           (lider)
+    REFERENCES PROFESOR     (dni)
+    ON DELETE  SET NULL
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE PROFESOR
+  ADD CONSTRAINT CF_GRUPOPROFESOR
+    FOREIGN KEY           (grupo, departamento)
+    REFERENCES GRUPO        (nome_grupo, nome_departamento)
+    ON DELETE  SET NULL
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE PARTICIPA
+  ADD CONSTRAINT CF_PROFESORPARTICIPA
+    FOREIGN KEY           (dni)
+    REFERENCES PROFESOR     (dni)
+    ON DELETE  NO ACTION
+    ON UPDATE  CASCADE,
+  ADD CONSTRAINT CF_PROXECTOPARTICIPA
+    FOREIGN KEY           (codigo_proxecto)
+    REFERENCES PROXECTO     (codigo_proxecto)
+    ON DELETE  NO ACTION
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE PROXECTO
+  ADD CONSTRAINT CF_GRUPOPROXECTO
+    FOREIGN KEY          (grupo, departamento)
+    REFERENCES GRUPO        (nome_grupo, nome_departamento)
+    ON DELETE  SET NULL
+    ON UPDATE  CASCADE
+;
+
+ALTER TABLE FINANCIA 
+  ADD CONSTRAINT CF_PROXECTOFINANCIA
+    FOREIGN KEY          (codigo_proxecto)
+    REFERENCES PROXECTO     (codigo_proxecto)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE
+;
+```
+
+![ejer1paso11](./img/ejer/ejer1paso11.JPG)
+
+>12º PASO: Agregamos algun check de ejemplo con la función Alter. Por ejemplo, en la tabla Participa, el atributo data_cese tiene que ser de mayor fecha que data_inicio.
+```sql
+ALTER TABLE PARTICIPA
+  ADD CONSTRAINT CHECK_INICIOCESE
+    CHECK (data_inicio < data_cese)
+;
+
+ALTER TABLE PROXECTO
+  ADD CONSTRAINT CHECK_INICIOFIN
+    CHECK (data_inicio < data_fin);
+
+```
+
+![ejer1paso12](./img/ejer/ejer1paso12.JPG)
 
 ## NAVES ESPACIAIS
 O Ministerio da Exploración Interplanetaria da Federación Unida de Planetas desexa desenvolver un Sistema de Información para a nave espacial Stanisław Lem 72 que proximamente se lanzará ao espazo.
